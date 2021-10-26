@@ -20,9 +20,9 @@ print(at_client.subtypes)
 #### Rainfall
 
 ```python
-data = at.rainfall((-33.33, 149.58))
-data = at.rainfall("Edgells Ln, Kelso NSW 2795")
-data = at.rainfall((-33.33, 149.58), subtypes = ["volume"], periods = ["annual"])
+data = at_client.rainfall((-33.33, 149.58))
+data = at_client.rainfall("Edgells Ln, Kelso NSW 2795")
+data = at_client.rainfall((-33.33, 149.58), subtypes = ["volume"], periods = ["annual"])
 
 ```
 

@@ -18,11 +18,11 @@ class Agtuary(object):
         self.key = None
 
     @property
-    def periods(self) -> List[str]:
+    def rainfall_periods(self) -> List[str]:
         return [s.value for s in Seasons] + [ANNUAL]
 
     @property
-    def subtypes(self) -> List[str]:
+    def rainfall_subtypes(self) -> List[str]:
         return ["volume", "consistency", "duration", "reliability"]
 
     def rainfall(
@@ -35,10 +35,10 @@ class Agtuary(object):
         headers = {"Authorization": f"Bearer {self.key}"}
 
         if not isinstance(subtypes, list):
-            subtypes = self.subtypes
+            subtypes = self.rainfall_subtypes
 
         if not isinstance(periods, list):
-            periods = self.periods
+            periods = self.rainfall_periods
 
         if isinstance(location, str):
             json = {"address": location, "point": {"latitude": None, "longitude": None}}

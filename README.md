@@ -6,7 +6,7 @@ API wrapper interface for agricultural analytics
 
 ## Setup
 
-## install
+## Install
 
 Install the `agtuary` package:
 

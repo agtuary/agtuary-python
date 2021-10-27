@@ -138,6 +138,20 @@ This should return:
 ## Project Road Map
 
 - [x] rainfall
-- [ ] soil *(50% complete)*
+    - [x] volume
+    - [x] consistency
+    - [x] reliability
+    - [x] duration
 - [ ] ndvi/productivity *(10% complete)*
+    - [ ] Land use classification
+    - [ ] Area under NDVI growth curve
+    - [ ] Maximum NDVI ndvi_max
+    - [ ] rainfall vs productivity
+- [ ] soil *(50% complete)*
+    - [x] pH
+    - [ ] soil texture (sand, silt, clay content)
+    - [x] available water capacity (AWC)
 - [ ] temperature
+    - [ ] frost risk
+    - [ ] heat risk
+    - [ ] temperature trend over time

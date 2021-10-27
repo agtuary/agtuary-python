@@ -28,14 +28,11 @@ at_client = Agtuary(email=user, password=psk)
 
 ## API layout
 
-- the only information we need as an input is some location (point, address, geojson)
-- that location and the bigger regions (postcodes, suburbs, LGAs, broadacrezones, states) that its in all have an ID
-- use that ID to get the data for that
-- endpoint for also getting the IDs of bigger regions that a point is in
+The API wrapper functions for getting data rely upon a region ID. This region ID is a unique code, that is generated on-demand for a GeoJSON-based region, and pre-determined for government-defined regions (postcodes, suburbs, LGA/shires, broadacre zones, states). 
 
-- bigger regions data is precomputed
-- specific geojson/point data is calculated on-demand
+For these government defined regions, the analytics are pre-calculated so it is available instantly through the API wrapper. For your own GeoJSON-based region, like a particular property or farm, the analytics are calculated on-demand. These are accessible based on your pricing plan.
 
+There are helper functions that return all of the region ID's for a particular point or address (street or town name).
 
 
 ## Products and Subtypes

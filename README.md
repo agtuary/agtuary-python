@@ -88,12 +88,12 @@ This should return:
 
 ```json
 [
-    ['1995-01-01T00:00:00',
-     {'summer': 46.53524684906006,
-      'autumn': 114.27728319168091,
-      'winter': 156.54125213623047,
-      'spring': 83.89842867851257}],
-    ['1996-01-01T00:00:00', {
+    ["1995-01-01T00:00:00",
+     {"summer": 46.53524684906006,
+      "autumn": 114.27728319168091,
+      "winter": 156.54125213623047,
+      "spring": 83.89842867851257}],
+    ["1996-01-01T00:00:00", {
         ...
     }],
     ...
@@ -108,7 +108,6 @@ This should return:
 |ndvi_aoc|Total area under the NDVI growth curve|For each year, sum the area under the NDVI growth curve over the region. From this, calculate the average for each land use type|
 |ndvi_max|Maximum NDVI throughout the year|For each year, calculate the maximum NDVI value over the region. From this, calculate the average for each land use type| 
 |plant_harvest|Estimated planting and harvesting dates|For each year, for winter and summer areas from the land use mask, fit each to a curve equation and estimate the planting and harvest dates| 
-|   |   |   | 
 
 #### Usage
 
@@ -122,13 +121,13 @@ This should return:
 
 ```json
 [
-    ['2003-01-01T00:00:00',
-     {'pasture': 73.2,
-      'winter': 1420.2,
-      'summer': 0.0,
-      'nature': 21.6,
-      'other': 326.9}],
-    ['2004-01-01T00:00:00', {
+    ["2003-01-01T00:00:00",
+     {"pasture": 73.2,
+      "winter": 1420.2,
+      "summer": 0.0,
+      "nature": 21.6,
+      "other": 326.9}],
+    ["2004-01-01T00:00:00", {
         ...
     }],
     ...

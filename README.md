@@ -141,7 +141,7 @@ This should return:
     - [x] consistency
     - [x] reliability
     - [x] duration
-- [ ] ndvi/productivity *(10% complete)*
+- [ ] Productivity & Land Use *(10% complete)*
     - [ ] Land use classification
     - [ ] Area under NDVI growth curve
     - [ ] Maximum NDVI ndvi_max

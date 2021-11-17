@@ -1,1 +1,1 @@
-from .analytics import Analytics
+from .v1.analytics import Analytics

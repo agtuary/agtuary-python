@@ -1,45 +1,7 @@
-from .abstract.api_requestor import APIRequestor
 from dataclasses import dataclass
 from typing import List, Optional, Union
 from numbers import Number
-
-
-class Data(object):
-    def __init__(self, data):
-        self.json = data
-
-    def __getitem__(self, key):
-        v = [j for j in self.json if j["product"] == key or j["subtype"] == key]
-        return v
-
-    def __iter__(self):
-        return iter(self.json)
-
-    def __len__(self):
-        return len(self.json)
-
-    def as_dataframe(self):
-        import pandas as pd
-
-        pass
-
-    def as_array(self):
-        pass
-
-
-class V1Endpoint(object):
-    def __init__(self, requestor: APIRequestor):
-        self.requestor = requestor
-
-    @property
-    def url(self):
-        return f"/v1/{self.COLLECTION_NAME}"
-
-    def check_error(self, response):
-        if not response["error"]:
-            return Data(response["data"])
-
-        raise Exception(response["error"]["description"], response["error"]["code"])
+from endpoint import Data, V1Endpoint
 
 
 @dataclass
@@ -70,6 +32,27 @@ class AnalyticsData:
     calculated_description: Optional[str] = None
     score_description: Optional[str] = None
 
+    def __init__(self, data):
+        self.json = data
+
+    def __getitem__(self, key):
+        v = [j for j in self.json if j["product"] == key or j["subtype"] == key]
+        return v
+
+    def __iter__(self):
+        return iter(self.json)
+
+    def __len__(self):
+        return len(self.json)
+
+    def as_dataframe(self):
+        import pandas as pd
+
+        pass
+
+    def as_array(self):
+        pass
+
 
 class Analytics(V1Endpoint):
     COLLECTION_NAME = "analytics"
@@ -78,4 +61,7 @@ class Analytics(V1Endpoint):
 
         url = self.url + f"/{id}" if isinstance(id, str) else self.url
         response = self.requestor.request("get", url)
-        return super().check_error(response)
+        anal_list = [
+            AnalyticsData(**a) for a in super().check_error(response).json_array
+        ]
+        return anal_list

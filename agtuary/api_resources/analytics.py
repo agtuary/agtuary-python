@@ -1,5 +1,7 @@
 from .abstract.api_requestor import APIRequestor
-from typing import Optional
+from dataclasses import dataclass
+from typing import List, Optional, Union
+from numbers import Number
 
 
 class Data(object):
@@ -38,6 +40,35 @@ class V1Endpoint(object):
             return Data(response["data"])
 
         raise Exception(response["error"]["description"], response["error"]["code"])
+
+
+@dataclass
+class AnalyticsData:
+    id: str
+    product: str
+    subtype: str
+    name: str
+    description: str
+    values: list
+
+    team: str
+    project: str
+    region: str
+    user: str
+
+    summary: Optional[str] = None
+    dotpoints: Optional[list] = None
+    table: Optional[dict] = None
+    score: Optional[dict] = None
+
+    across: Optional[str] = None
+    created: Optional[str] = None
+    updated: Optional[str] = None
+    interval: Optional[List[Union[int, str]]] = None
+    anchor: Optional[str] = None
+    points: Optional[Number] = None
+    calculated_description: Optional[str] = None
+    score_description: Optional[str] = None
 
 
 class Analytics(V1Endpoint):

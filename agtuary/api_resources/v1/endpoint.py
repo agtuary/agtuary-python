@@ -3,7 +3,7 @@ from dataclasses import dataclass
 
 
 @dataclass
-class Data(object):
+class ResponseData(object):
     json_array: list
 
 
@@ -17,6 +17,6 @@ class V1Endpoint(object):
 
     def check_error(self, response):
         if not response["error"]:
-            return Data(json_array=response["data"])
+            return ResponseData(json_array=response["data"])
 
         raise Exception(response["error"]["description"], response["error"]["code"])

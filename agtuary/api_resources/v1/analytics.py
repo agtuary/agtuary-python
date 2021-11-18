@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from typing import List, Optional, Union
 from numbers import Number
-from endpoint import Data, V1Endpoint
+from .endpoint import ResponseData, V1Endpoint
 
 
 @dataclass
@@ -61,6 +61,7 @@ class Analytics(V1Endpoint):
 
         url = self.url + f"/{id}" if isinstance(id, str) else self.url
         response = self.requestor.request("get", url)
+        # print(super().check_error(response).json_array)
         anal_list = [
             AnalyticsData(**a) for a in super().check_error(response).json_array
         ]

@@ -6,7 +6,7 @@ import requests
 
 from dataclasses import dataclass
 
-from agtuary.api_resources.abstract.api_requestor import APIRequestor
+from .api_resources.abstract.api_requestor import APIRequestor
 
 from .rainfall_enums import ANNUAL, Seasons
 

@@ -67,8 +67,6 @@ class APIRequestor(object):
 
         encoded_params = urlencode(list(_api_encode(params or {})))
 
-        print(encoded_params)
-
         if method == "get":
             if params:
                 abs_url = "%s/%s" % (abs_url, encoded_params)
@@ -85,7 +83,6 @@ class APIRequestor(object):
             for key, value in supplied_headers.items():
                 headers[key] = value
 
-        print(abs_url)
         return self.client.request(method, abs_url, headers, post_data=post_data)
 
     def request_headers(self, api_key, method):
